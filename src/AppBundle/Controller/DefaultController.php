@@ -6,14 +6,22 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-class DefaultController extends Controller
-{
+class DefaultController extends Controller {
+
     /**
      * @Route("/", name="homepage")
      */
-    public function indexAction(Request $request)
-    {
+    public function indexAction(Request $request) {
         return $this->render('AppBundle:General:index.html.twig', array(
         ));
     }
+
+    /**
+     * @Route("/add/person/", name="add_person")
+     */
+    public function addPersonAction(Request $request) {
+        return $this->render('AppBundle:General:addPerson.html.twig', array(
+        ));
+    }
+
 }
