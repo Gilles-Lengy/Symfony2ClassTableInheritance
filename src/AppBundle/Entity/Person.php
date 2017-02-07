@@ -5,10 +5,10 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Person
- *
- * @ORM\Table(name="person")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\PersonRepository")
+ * @Entity
+ * @InheritanceType("JOINED")
+ * @DiscriminatorColumn(name="discr", type="string")
+ * @DiscriminatorMap({"person" = "Person", "employee" = "Employee"})
  */
 class Person
 {
