@@ -10,16 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="employee")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\EmployeeRepository")
  */
-class Employee extends Person
-{
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
+class Employee extends Person {
 
     /**
      * @var string
@@ -28,25 +19,13 @@ class Employee extends Person
      */
     private $job;
 
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
     /**
      * Set job
      *
      * @param string $job
      * @return Employee
      */
-    public function setJob($job)
-    {
+    public function setJob($job) {
         $this->job = $job;
 
         return $this;
@@ -57,8 +36,8 @@ class Employee extends Person
      *
      * @return string 
      */
-    public function getJob()
-    {
+    public function getJob() {
         return $this->job;
     }
+
 }

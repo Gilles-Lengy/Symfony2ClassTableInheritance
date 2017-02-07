@@ -6,21 +6,24 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class EmployeeType extends AbstractType
-{
+class EmployeeType extends AbstractType {
+
     /**
      * {@inheritdoc}
      */
-    public function buildForm(FormBuilderInterface $builder, array $options)
-    {
-        $builder->add('job')        ;
+    public function buildForm(FormBuilderInterface $builder, array $options) {
+        $builder
+                ->add('firstname')
+                ->add('lastname')
+                ->add('job')
+                ->add('save', 'submit')
+        ;
     }
-    
+
     /**
      * {@inheritdoc}
      */
-    public function configureOptions(OptionsResolver $resolver)
-    {
+    public function configureOptions(OptionsResolver $resolver) {
         $resolver->setDefaults(array(
             'data_class' => 'AppBundle\Entity\Employee'
         ));
@@ -29,10 +32,8 @@ class EmployeeType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function getBlockPrefix()
-    {
+    public function getBlockPrefix() {
         return 'appbundle_employee';
     }
-
 
 }

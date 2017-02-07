@@ -1,0 +1,30 @@
+{# src\AppBundle\Resources\views\General\viewPerson.html.twig #}
+
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block title %}
+    Person - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+    <div>
+
+        {# On affiche tous les messages flash dont le nom est « notice » #}
+
+        {% for message in app.session.flashbag.get('notice') %}
+            <div class="alert alert-success" role="alert">
+                <p>{{ message }}</p>
+            </div>
+
+
+        {% endfor %}
+
+    </div>
+
+    <h2>{{ employee.firstname }} {{ employee.lastname }}</h2>
+    <div class="well">
+        {{ employee.job }} 
+    </div>
+
+{% endblock %}
