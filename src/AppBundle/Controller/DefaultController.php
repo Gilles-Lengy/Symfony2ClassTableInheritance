@@ -16,7 +16,20 @@ class DefaultController extends Controller {
      * @Route("/", name="homepage")
      */
     public function indexAction(Request $request) {
+
+        $em = $this->getDoctrine()->getManager();
+
+        $listPerson = $em->getRepository('AppBundle:Person')->findBy(
+                array(),
+                array('lastname' => 'desc')
+        );
+        $listEmployee = $em->getRepository('AppBundle:Employee')->findBy(
+                array(), // Pas de critère
+                array('lastname' => 'desc')
+        );
         return $this->render('AppBundle:General:index.html.twig', array(
+                    'listPerson' => $listPerson,
+                    'listEmployee' => $listEmployee
         ));
     }
 

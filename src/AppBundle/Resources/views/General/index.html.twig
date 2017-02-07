@@ -14,4 +14,32 @@
         <div class="alert alert-info">Message flash : {{ message }}</div>
     {% endfor %}
 
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-info">          
+            <h3>Personnes list ( contain person that can be an employee so the link is not really useful )</h3>
+        </li>
+        {% for person in listPerson %}
+            <li class="list-group-item">
+                <a href="{{ path('view_person', {'id': person.id}) }}">
+                    <i class="glyphicon glyphicon-chevron-right"></i>
+                    {{ person.lastname }} {{ person.firstname }}                   
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-info">          
+            <h3>Employees list</h3>
+        </li>
+        {% for employee in listEmployee %}
+            <li class="list-group-item">
+                <a href="{{ path('view_employee', {'id': employee.id}) }}">
+                    <i class="glyphicon glyphicon-chevron-right"></i>
+                    {{ employee.lastname }} {{ employee.firstname }}                   
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+
 {% endblock %}
